@@ -34,10 +34,10 @@ export default function HowItWorks() {
       <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {STEPS.map(({ icon: Icon, title, description }, i) => (
           <div key={title} className="relative">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-900 text-white">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-500 text-white">
               <Icon className="h-6 w-6" />
             </div>
-            <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-accent-500 text-xs font-bold text-white">
+            <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-brand-900 text-xs font-bold text-white">
               {i + 1}
             </span>
             <h3 className="mt-5 text-base font-bold text-ink-900">{title}</h3>

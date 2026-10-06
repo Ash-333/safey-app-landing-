@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react'
+import { useLandingContent } from '../lib/landingContent'
 
 const FREE_FEATURES = [
   'Live location & Safe Walk',
@@ -17,11 +18,13 @@ const PREMIUM_FEATURES = [
 ]
 
 export default function Pricing() {
+  const { downloadUrl } = useLandingContent()
+
   return (
     <section id="pricing" className="bg-ink-900 py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wide text-brand-400">Pricing</span>
+          <span className="text-sm font-semibold uppercase tracking-wide text-accent-400">Pricing</span>
           <h2 className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Simple, honest pricing</h2>
           <p className="mt-4 text-lg text-white/70">Premium is completely free during our launch in Nepal.</p>
         </div>
@@ -36,12 +39,12 @@ export default function Pricing() {
             <ul className="mt-6 space-y-3">
               {FREE_FEATURES.map((f) => (
                 <li key={f} className="flex items-start gap-3 text-sm text-white/85">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" /> {f}
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-400" /> {f}
                 </li>
               ))}
             </ul>
             <a
-              href="https://drive.google.com/uc?export=download&id=100urq8DhHoffzRiSbgIhK-9OC935mK-B"
+              href={downloadUrl}
               className="mt-8 block rounded-full border border-white/20 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               Download
@@ -66,7 +69,7 @@ export default function Pricing() {
               ))}
             </ul>
             <a
-              href="https://drive.google.com/uc?export=download&id=100urq8DhHoffzRiSbgIhK-9OC935mK-B"
+              href={downloadUrl}
               className="mt-8 block rounded-full bg-accent-500 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-accent-600"
             >
               Activate Free Plan

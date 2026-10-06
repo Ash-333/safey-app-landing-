@@ -1,4 +1,4 @@
-import { Check, Lock } from 'lucide-react'
+import { Check } from 'lucide-react'
 
 const PARENT_ITEMS = [
   'Live location & location history',
@@ -23,7 +23,7 @@ export default function DualView() {
     <section className="bg-ink-900 py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-wide text-brand-400">Two apps, one family</span>
+          <span className="text-sm font-semibold uppercase tracking-wide text-accent-400">Two apps, one family</span>
           <h2 className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">Everyone gets what they actually need</h2>
           <p className="mt-4 text-lg text-white/70">
             Parents get real safety oversight. Kids get real tools and real privacy. Neither side is guessing.
@@ -37,7 +37,7 @@ export default function DualView() {
             <ul className="mt-6 space-y-3">
               {PARENT_ITEMS.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-white/85">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-400" />
                   {item}
                 </li>
               ))}

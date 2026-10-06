@@ -1,5 +1,5 @@
 import { KeyRound, PhoneCall, ShieldAlert, Sparkles, VolumeX } from 'lucide-react'
-import SosMockup from './SosMockup'
+import SosSequence from './SosSequence'
 
 const STEPS = [
   {
@@ -63,7 +63,7 @@ export default function SOSDeepDive() {
         </div>
 
         <div className="order-1 lg:order-2">
-          <SosMockup />
+          <SosSequence />
         </div>
       </div>
     </section>

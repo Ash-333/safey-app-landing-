@@ -13,7 +13,7 @@ export default function LearningWellness() {
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="rounded-3xl bg-white p-8 shadow-sm">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 text-white">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-400 to-accent-600 text-white">
               <BookOpenCheck className="h-6 w-6" />
             </div>
             <h3 className="mt-5 text-xl font-bold text-ink-900">Learn to stay safe</h3>

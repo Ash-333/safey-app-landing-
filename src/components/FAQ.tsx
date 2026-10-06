@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { useLandingContent } from '../lib/landingContent'
 
 const QUESTIONS = [
   {
@@ -38,6 +39,8 @@ const QUESTIONS = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const { faqs } = useLandingContent()
+  const questions = faqs && faqs.length > 0 ? faqs : QUESTIONS
 
   return (
     <section id="faq" className="mx-auto max-w-4xl px-5 pb-12 pt-24 sm:px-8">
@@ -47,7 +50,7 @@ export default function FAQ() {
       </div>
 
       <div className="mt-12 space-y-3">
-        {QUESTIONS.map((item, i) => {
+        {questions.map((item, i) => {
           const isOpen = openIndex === i
           return (
             <div key={item.q} className="overflow-hidden rounded-2xl border border-black/5 bg-white">

@@ -14,7 +14,7 @@ export default function LegalLayout({
   children: ReactNode
 }) {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen">
       <header className="border-b border-black/5 bg-white">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-5 sm:px-8">
           <Link to="/"><Logo /></Link>

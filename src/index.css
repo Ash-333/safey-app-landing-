@@ -1,21 +1,26 @@
 @import "tailwindcss";
 
-/* Same palette as the Safey Live apps (see girls_safety/lib/core/theme/app_colors.dart
-   and dashboard/src/index.css) so the marketing site, the product, and the
-   admin dashboard all read as one brand. */
+/* Orange + black brand palette. "brand" is the structural black/gray scale
+   (buttons, headings, dark sections); "accent" is the orange highlight
+   color, reused from the app's own SOS accentVivid orange (#FF7A29, see
+   girls_safety/lib/core/theme/app_colors.dart) so the marketing site still
+   shares one real color with the product instead of a generic orange. */
 @theme {
-  --color-brand-50: #ecfdf5;
-  --color-brand-100: #d1fae5;
-  --color-brand-400: #34d399;
-  --color-brand-500: #10b981;
-  --color-brand-600: #059669;
-  --color-brand-700: #047857;
-  --color-brand-800: #065f46;
-  --color-brand-900: #064e3b;
+  --color-brand-50: #f4f4f5;
+  --color-brand-100: #e4e4e7;
+  --color-brand-400: #a1a1aa;
+  --color-brand-500: #3f3f46;
+  --color-brand-600: #18181b;
+  --color-brand-700: #09090b;
+  --color-brand-800: #000000;
+  --color-brand-900: #000000;
 
+  --color-accent-50: #fff4ec;
+  --color-accent-100: #ffe3cc;
   --color-accent-400: #ff9a5c;
   --color-accent-500: #ff7a29;
   --color-accent-600: #e8630f;
+  --color-accent-700: #c2540d;
   --color-accent-dark: #8a3b0f;
 
   --color-ink-900: #0f172a;
@@ -36,8 +41,17 @@ body,
   height: 100%;
 }
 
+/* The page backdrop itself carries both brand colors: large soft black and
+   orange glows over a light base. Kept light overall (not solid black)
+   because several sections (SOSDeepDive, PrivacySection, etc.) place dark
+   text directly on this background rather than inside a white card. */
 body {
-  background-color: #f7f5f0;
+  background-color: #f6f6f5;
+  background-image:
+    radial-gradient(900px 560px at 8% -8%, rgba(255, 122, 41, 0.16), transparent 60%),
+    radial-gradient(1000px 650px at 100% 6%, rgba(0, 0, 0, 0.07), transparent 55%),
+    radial-gradient(800px 500px at 50% 100%, rgba(255, 122, 41, 0.08), transparent 60%);
+  background-attachment: fixed;
   color: var(--color-ink-900);
   font-family: var(--font-sans);
 }

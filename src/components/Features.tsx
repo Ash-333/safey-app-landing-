@@ -2,7 +2,6 @@ import { useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import {
   AlertTriangle,
-  BatteryCharging,
   BookOpenCheck,
   Check,
   Footprints,
@@ -33,6 +32,37 @@ type Category = {
 
 const CATEGORIES: Category[] = [
   {
+    key: 'location',
+    label: 'Location & Safe Walk',
+    intro: 'Live location tracking and geofenced safe zones, always on.',
+    features: [
+      {
+        icon: MapPinned,
+        title: 'Live location tracking',
+        description:
+          'Guardians see exactly where your child is in real time, on an actual map with real place names, not just a coordinate that means nothing.',
+      },
+      {
+        icon: Footprints,
+        title: 'Safe Walk, live',
+        description:
+          'Start a guided walk and guardians see the exact same road-following route, shrinking in real time as your child gets closer, with an automatic overdue alert if they don\'t arrive.',
+      },
+      {
+        icon: ShieldAlert,
+        title: 'Geofenced Safe Zones',
+        description:
+          'Draw a geofence around home, school, or a tutor\'s place on the map. Get notified the instant it\'s entered or left, no manual check-ins needed.',
+      },
+      {
+        icon: History,
+        title: 'Location history',
+        description:
+          'See where your child has actually been, with real place names and visit durations, not just raw coordinates.',
+      },
+    ],
+  },
+  {
     key: 'emergency',
     label: 'Emergency & SOS',
     intro: 'Built for the ten seconds that actually matter.',
@@ -60,37 +90,6 @@ const CATEGORIES: Category[] = [
         title: 'Offline SMS Fallback',
         description:
           'If there\'s no active internet connection when an SOS is triggered, the app automatically falls back to sending direct emergency SMS alerts to your guardians.',
-      },
-    ],
-  },
-  {
-    key: 'location',
-    label: 'Location & Safe Walk',
-    intro: 'Not just a dot on a map: the actual picture.',
-    features: [
-      {
-        icon: Footprints,
-        title: 'Safe Walk, live',
-        description:
-          'Start a guided walk and guardians see the exact same road-following route, shrinking in real time as your child gets closer, with an automatic overdue alert if they don\'t arrive.',
-      },
-      {
-        icon: MapPinned,
-        title: 'Safe Zones',
-        description:
-          'Draw a zone around home, school, or a tutor\'s place on the map. Get notified the instant it\'s entered or left, no manual check-ins needed.',
-      },
-      {
-        icon: History,
-        title: 'Location history',
-        description:
-          'See where your child has actually been, with real place names and visit durations, not just raw coordinates.',
-      },
-      {
-        icon: BatteryCharging,
-        title: 'Battery & signal awareness',
-        description:
-          "See battery level and connection status alongside location, so a dead phone never looks like a mystery.",
       },
     ],
   },
@@ -198,7 +197,7 @@ export default function Features() {
             key={title}
             className="group rounded-3xl border border-black/5 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
           >
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 text-white">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-400 to-accent-600 text-white">
               <Icon className="h-5 w-5" />
             </div>
             <h3 className="mt-4 text-base font-bold text-ink-900">{title}</h3>

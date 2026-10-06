@@ -29,7 +29,7 @@ const CARDS = [
 
 export default function SafeSpaceSupport() {
   return (
-    <section id="safe-space" className="bg-white pb-24 pt-12">
+    <section id="safe-space" className="bg-white/80 pb-24 pt-12">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold text-brand-700">
@@ -47,7 +47,7 @@ export default function SafeSpaceSupport() {
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CARDS.map(({ icon: Icon, title, description }) => (
             <div key={title} className="rounded-3xl border border-black/5 bg-brand-50/40 p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-400 to-accent-600 text-white">
                 <Icon className="h-5 w-5" />
               </div>
               <h3 className="mt-4 text-base font-bold text-ink-900">{title}</h3>

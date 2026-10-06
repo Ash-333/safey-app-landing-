@@ -2,24 +2,52 @@
 import { Menu, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
+import { useLandingContent } from '../lib/landingContent'
 
 const NAV_LINKS = [
+  { href: '#home', label: 'Home' },
+  { href: '#what-is-safey-live', label: 'About Us' },
   { href: '#features', label: 'Features' },
   { href: '#privacy', label: 'Safety & Privacy' },
   { href: '#learning', label: 'Learning & Wellness' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
+  const { downloadUrl } = useLandingContent()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [activeHref, setActiveHref] = useState<string | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const sections = NAV_LINKS.map((link) => document.getElementById(link.href.slice(1))).filter(
+      (el): el is HTMLElement => el !== null
+    )
+
+    // Treats a thin band just under the sticky navbar as "active" — only
+    // one section sits in that band at a time, so this naturally avoids the
+    // multiple-simultaneous-matches problem a plain viewport-visibility
+    // check would have.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveHref(`#${entry.target.id}`)
+        }
+      },
+      { rootMargin: '-96px 0px -70% 0px', threshold: 0 }
+    )
+
+    sections.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
   }, [])
 
   return (
@@ -38,7 +66,9 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-ink-700 transition-colors hover:text-brand-600"
+              className={`border-b-2 pb-1 text-sm font-medium transition-colors hover:text-accent-600 ${
+                activeHref === link.href ? 'border-accent-500 text-accent-600' : 'border-transparent text-ink-700'
+              }`}
             >
               {link.label}
             </a>
@@ -47,8 +77,8 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <a
-            href="https://drive.google.com/uc?export=download&id=100urq8DhHoffzRiSbgIhK-9OC935mK-B"
-            className="rounded-full bg-ink-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.03] hover:bg-black"
+            href={downloadUrl}
+            className="rounded-full bg-accent-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.03] hover:bg-accent-600"
           >
             Get Started
           </a>
@@ -72,15 +102,17 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-700 hover:bg-brand-50 hover:text-brand-700"
+                className={`rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-accent-50 hover:text-accent-700 ${
+                  activeHref === link.href ? 'bg-accent-50 text-accent-700' : 'text-ink-700'
+                }`}
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="https://drive.google.com/uc?export=download&id=100urq8DhHoffzRiSbgIhK-9OC935mK-B"
+              href={downloadUrl}
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-ink-900 px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-2 rounded-full bg-accent-500 px-4 py-3 text-center text-sm font-semibold text-white"
             >
               Get Started
             </a>
