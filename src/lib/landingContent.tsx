@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 export const API_BASE_URL =
   (import.meta.env.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, '') || 'https://api.safey.live'
 
-export const DEFAULT_DOWNLOAD_URL = 'https://drive.google.com/uc?id=1w-_o1V_MTlsZdZEqfCdoppWtCu-iTLR6'
+export const DEFAULT_DOWNLOAD_URL = 'https://drive.google.com/uc?id=1jwp3KuKqtjeFQwAailCulf_GmqPV1AIB'
 export const DEFAULT_SUPPORT_EMAIL = 'safeylive@gmail.com'
 
 // Shape of GET /api/landing — everything the admin dashboard's "Landing Page"
