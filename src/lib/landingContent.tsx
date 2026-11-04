@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 export const API_BASE_URL =
   (import.meta.env.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, '') || 'https://api.safey.live'
 
-export const DEFAULT_DOWNLOAD_URL = 'https://drive.google.com/uc?id=1a5tw9rWTlJyrsluiURiOvRBYUMcwoI6o'
+export const DEFAULT_DOWNLOAD_URL = 'https://drive.google.com/uc?id=1rT6Yli_Y_h2VnpSXOAa_qqlo3NOBoWUj'
 export const DEFAULT_SUPPORT_EMAIL = 'safeylive@gmail.com'
 
 // The APK is hosted as a GitHub Release asset. The site always downloads the
