@@ -53,7 +53,7 @@ export default function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors ${
-        scrolled ? 'bg-pink-100/85 backdrop-blur-md shadow-sm' : 'bg-pink-50'
+        scrolled ? 'bg-red-500/85 backdrop-blur-md shadow-sm' : 'bg-red-500'
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
